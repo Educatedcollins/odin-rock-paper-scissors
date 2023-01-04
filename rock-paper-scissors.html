@@ -15,9 +15,31 @@
 
         console.log("Rock, Paper, Scissors!")
         console.log("Choose your weapon!")
-        let playerSelection = prompt("Choose Rock, Paper or Scissors", "Rock")
+       // let playerOptions = prompt("Choose Rock, Paper or Scissors", "Rock")
+        let playerSelection = "null"
 
-        if playerSelection.toLowerCase() === "rock"
+        //used break because I couldn't figure out how to exit the loop organically. FeelsBadMan
+        while (playerSelection === "null") {
+            let playerOptions = prompt("Choose Rock, Paper or Scissors", "Rock")
+        if (playerOptions.toLowerCase() === "rock") {
+            let playerSelection = "rock";
+            console.log(playerSelection);
+            break;
+        }
+        else if (playerOptions.toLowerCase() === "paper") {
+            let playerSelection = "paper";
+            console.log(playerSelection);
+            break;
+        }
+        else if (playerOptions.toLowerCase() === "scissors") {
+            let playerSelection = "scissors";
+            console.log(playerSelection);
+            break;
+        }
+        else console.log("Incorrect Selection, Try Again Please. Choose Rock, Paper or Scissors")
+    }
+    // Aparently Console shows null. Need to fix
+    console.log(playerSelection)
     </script>      
 </head>
 <body>
