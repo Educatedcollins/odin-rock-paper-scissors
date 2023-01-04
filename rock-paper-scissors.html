@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title> Rock Paper Scissors!</title>
+    <style>
+      * { background-color: rgb(3, 3, 3);}
+      
+      </style>
+    <script>
+        let computerOptions = ["rock","paper","scissors"];
+        let randomComputerOptions = Math.floor((Math.random() * computerOptions.length));
+        let getComputerChoice = computerOptions[randomComputerOptions];
+        console.log(getComputerChoice);
+
+        console.log("Rock, Paper, Scissors!")
+        console.log("Choose your weapon!")
+        let playerSelection = prompt("Choose Rock, Paper or Scissors", "Rock")
+
+        if playerSelection.toLowerCase() === "rock"
+    </script>      
+</head>
+<body>
+
+</body>
+</html>
