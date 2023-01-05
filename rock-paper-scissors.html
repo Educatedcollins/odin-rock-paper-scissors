@@ -16,30 +16,64 @@
         console.log("Rock, Paper, Scissors!")
         console.log("Choose your weapon!")
        // let playerOptions = prompt("Choose Rock, Paper or Scissors", "Rock")
-        let playerSelection = "null"
+        let playerSelection = "hope"
 
         //used break because I couldn't figure out how to exit the loop organically. FeelsBadMan
-        while (playerSelection === "null") {
+        //figured it out, I made a new variable in the scope becaues I added let, have to not have that
+        while (playerSelection === "hope") {
             let playerOptions = prompt("Choose Rock, Paper or Scissors", "Rock")
         if (playerOptions.toLowerCase() === "rock") {
-            let playerSelection = "rock";
+            playerSelection = "rock";
             console.log(playerSelection);
-            break;
+          //  break;
         }
         else if (playerOptions.toLowerCase() === "paper") {
-            let playerSelection = "paper";
+            playerSelection = "paper";
             console.log(playerSelection);
-            break;
+         //   break;
         }
         else if (playerOptions.toLowerCase() === "scissors") {
-            let playerSelection = "scissors";
+            playerSelection = "scissors";
             console.log(playerSelection);
-            break;
+          //  break;
         }
         else console.log("Incorrect Selection, Try Again Please. Choose Rock, Paper or Scissors")
     }
-    // Aparently Console shows null. Need to fix
     console.log(playerSelection)
+
+    function playRound(playerSelection, computerSelection) {
+        if (playerSelection === "rock" && computerSelection === "rock") {
+            console.log("Both Picked Rock!, A DRAW!")
+        }
+        else if (playerSelection === "paper" && computerSelection === "rock") {
+            console.log("You picked Paper, Computer picked Rock! You get a Pointo!")
+        }
+        else if (playerSelection === "scissors" && computerSelection === "rock") {
+            console.log("You picked Scissor, Computer picked Rock! Computer get a Pointo!")
+        }
+        else if (playerSelection === "paper" && computerSelection === "paper") {
+            console.log("Both Picked Paper!, A DRAW!")
+        }
+        else if (playerSelection === "scissors" && computerSelection === "paper") {
+            console.log("You picked Scissors, Computer picked Paper! You get a Pointo!")
+        }
+        else if (playerSelection === "rock" && computerSelection === "paper") {
+            console.log("You picked Rock, Computer picked Paper! Computer get a Pointo!")
+        }
+        else if (playerSelection === "scissors" && computerSelection === "scissors") {
+            console.log("Both Picked Scissors!, A DRAW!")
+        }
+        else if (playerSelection === "rock" && computerSelection === "scissors") {
+            console.log("You picked Rock, Computer picked Scissors! You get a Pointo!")
+        }
+        else if (playerSelection === "paper" && computerSelection === "scissors") {
+            console.log("You picked Paper, Computer picked Scissors! Computer get a Pointo!")
+        }
+
+  // your code here!
+}
+        let computerSelection = getComputerChoice;
+        console.log(playRound(playerSelection, computerSelection));
     </script>      
 </head>
 <body>
