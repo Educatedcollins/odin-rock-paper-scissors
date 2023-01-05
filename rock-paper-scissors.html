@@ -11,15 +11,31 @@
         let computerOptions = ["rock","paper","scissors"];
         let randomComputerOptions = Math.floor((Math.random() * computerOptions.length));
         let getComputerChoice = computerOptions[randomComputerOptions];
+        function computerPicker() {
+            randomComputerOptions = Math.floor((Math.random() * computerOptions.length));
+            getComputerChoice = computerOptions[randomComputerOptions];
+        }
         console.log(getComputerChoice);
+        computerPicker()
+        console.log(getComputerChoice);
+        computerPicker()
+        console.log(getComputerChoice);
+        computerPicker()
+        console.log(getComputerChoice);
+        computerPicker()
+        console.log(getComputerChoice);
+        
 
         console.log("Rock, Paper, Scissors!")
         console.log("Choose your weapon!")
        // let playerOptions = prompt("Choose Rock, Paper or Scissors", "Rock")
         let playerSelection = "hope"
+        let playerScore = 0
+        let computerScore = 0
 
         //used break because I couldn't figure out how to exit the loop organically. FeelsBadMan
         //figured it out, I made a new variable in the scope becaues I added let, have to not have that
+        function playerSelect() {
         while (playerSelection === "hope") {
             let playerOptions = prompt("Choose Rock, Paper or Scissors", "Rock")
         if (playerOptions.toLowerCase() === "rock") {
@@ -38,42 +54,61 @@
           //  break;
         }
         else console.log("Incorrect Selection, Try Again Please. Choose Rock, Paper or Scissors")
-    }
-    console.log(playerSelection)
+    } }
+    //playerSelect()
+    //console.log(playerSelection)
 
     function playRound(playerSelection, computerSelection) {
         if (playerSelection === "rock" && computerSelection === "rock") {
-            console.log("Both Picked Rock!, A DRAW!")
+            return "Both Picked Rock!, A DRAW!"
         }
         else if (playerSelection === "paper" && computerSelection === "rock") {
-            console.log("You picked Paper, Computer picked Rock! You get a Pointo!")
+            playerScore++
+            return "You picked Paper, Computer picked Rock! You get a Pointo!"
+            
         }
         else if (playerSelection === "scissors" && computerSelection === "rock") {
-            console.log("You picked Scissor, Computer picked Rock! Computer get a Pointo!")
+            computerScore++
+            return "You picked Scissor, Computer picked Rock! Computer get a Pointo!"
         }
         else if (playerSelection === "paper" && computerSelection === "paper") {
-            console.log("Both Picked Paper!, A DRAW!")
+            return "Both Picked Paper!, A DRAW!"
         }
         else if (playerSelection === "scissors" && computerSelection === "paper") {
-            console.log("You picked Scissors, Computer picked Paper! You get a Pointo!")
+            playerScore++
+            return "You picked Scissors, Computer picked Paper! You get a Pointo!"
         }
         else if (playerSelection === "rock" && computerSelection === "paper") {
-            console.log("You picked Rock, Computer picked Paper! Computer get a Pointo!")
+            computerScore++
+            return "You picked Rock, Computer picked Paper! Computer get a Pointo!"
         }
         else if (playerSelection === "scissors" && computerSelection === "scissors") {
-            console.log("Both Picked Scissors!, A DRAW!")
+            return "Both Picked Scissors!, A DRAW!"
         }
         else if (playerSelection === "rock" && computerSelection === "scissors") {
-            console.log("You picked Rock, Computer picked Scissors! You get a Pointo!")
+            playerScore++
+            return "You picked Rock, Computer picked Scissors! You get a Pointo!"
         }
         else if (playerSelection === "paper" && computerSelection === "scissors") {
-            console.log("You picked Paper, Computer picked Scissors! Computer get a Pointo!")
+            computerScore++
+            return "You picked Paper, Computer picked Scissors! Computer get a Pointo!"
         }
 
   // your code here!
 }
         let computerSelection = getComputerChoice;
-        console.log(playRound(playerSelection, computerSelection));
+ //       console.log(playRound(playerSelection, computerSelection));
+        playerSelection = "hope"
+        while (playerScore < 5 && computerScore < 5) {
+            computerPicker();
+            computerSelection = getComputerChoice;
+            playerSelect();
+       //     playRound(playerSelection, computerSelection);
+            console.log(playRound(playerSelection, computerSelection));
+            playerSelection = "hope"
+            console.log(`Score is Player: ${playerScore}, Computer: ${computerScore} `)
+        }
+
     </script>      
 </head>
 <body>
