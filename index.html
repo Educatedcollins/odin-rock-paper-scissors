@@ -1,54 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title> Rock Paper Scissors!</title>
-    <style>
-      * { background-color: rgb(3, 3, 3);}
-      
-      </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link href="stylesheet.css" rel="stylesheet">
+ <!-- Not Used but good habit  <link href="javascript.js" rel="javascript"> --> 
     <script>
-//script is a bit ugly but it works, will clean on a later date COPIUM
 
         let computerOptions = ["rock","paper","scissors"];
-        let randomComputerOptions = Math.floor((Math.random() * computerOptions.length));
-        let getComputerChoice = computerOptions[randomComputerOptions];
+        let randomComputerOptions 
+        let getComputerChoice 
         function computerPicker() {
             randomComputerOptions = Math.floor((Math.random() * computerOptions.length));
             getComputerChoice = computerOptions[randomComputerOptions];
         }
-
-        console.log("Rock, Paper, Scissors!")
-        console.log("Choose your weapon!")
-       // let playerOptions = prompt("Choose Rock, Paper or Scissors", "Rock")
-        let playerSelection = "hope"
+        let playerSelection = null
         let playerScore = 0
         let computerScore = 0
 
-        //used break because I couldn't figure out how to exit the loop organically. FeelsBadMan
-        //figured it out, I made a new variable in the scope becaues I added let, have to not have that
         function playerSelect() {
-        while (playerSelection === "hope") {
+        while (playerSelection === null) {
             let playerOptions = prompt("Choose Rock, Paper or Scissors", "Rock")
         if (playerOptions.toLowerCase() === "rock") {
             playerSelection = "rock";
-          //  console.log(playerSelection);
-          //  break; 
         }
         else if (playerOptions.toLowerCase() === "paper") {
             playerSelection = "paper";
-          //  console.log(playerSelection);
-         //   break;
         }
         else if (playerOptions.toLowerCase() === "scissors") {
             playerSelection = "scissors";
-           // console.log(playerSelection);
-          //  break;
         }
         else console.log("Incorrect Selection, Try Again Please. Choose Rock, Paper or Scissors")
     } }
-    //playerSelect()
-    //console.log(playerSelection)
 
     function playRound(playerSelection, computerSelection) {
         if (playerSelection === "rock" && computerSelection === "rock") {
@@ -85,21 +70,15 @@
             computerScore++
             return "You picked Paper, Computer picked Scissors! Computer get a Pointo!"
         }
-
-  // your code here!
-}
-        let computerSelection = getComputerChoice;
- //       console.log(playRound(playerSelection, computerSelection));
-        playerSelection = "hope"
+    }
 
 
         function game() {            
             computerPicker();
             computerSelection = getComputerChoice;
             playerSelect();
-       //     playRound(playerSelection, computerSelection);
             console.log(playRound(playerSelection, computerSelection));
-            playerSelection = "hope"
+            playerSelection = null
             console.log(`Score is Player: ${playerScore}, Computer: ${computerScore} `)
         }
 
@@ -107,16 +86,19 @@
             game()
         }
 
-
         if (playerScore === 5) {
             console.log("YOU WIN!!! You beat the Computer! FeelsGoodMan")
         }
         else if (computerScore === 5) {
             console.log("YOU LOST!!! The Computer Beat You! FeelsBadMan")
         }
-    </script>      
+
+
+
+    </script>
 </head>
 <body>
-
+    <h1> Hello and Welcome to Rock Paper Scissors</h1>
+        <p class="console">Currently, the game is played on the console so please use that. </p>
 </body>
 </html>
