@@ -11,16 +11,16 @@
 
         let computerOptions = ["rock","paper","scissors"];
         let randomComputerOptions 
-        let getComputerChoice 
-        function computerPicker() {
+        let computerChoice 
+        function getComputerPick() {
             randomComputerOptions = Math.floor((Math.random() * computerOptions.length));
-            getComputerChoice = computerOptions[randomComputerOptions];
+            computerChoice = computerOptions[randomComputerOptions];
         }
         let playerSelection = null
         let playerScore = 0
         let computerScore = 0
 
-        function playerSelect() {
+        function getPlayerPick() {
         while (playerSelection === null) {
             let playerOptions = prompt("Choose Rock, Paper or Scissors", "Rock")
         if (playerOptions.toLowerCase() === "rock") {
@@ -42,7 +42,6 @@
         else if (playerSelection === "paper" && computerSelection === "rock") {
             playerScore++
             return "You picked Paper, Computer picked Rock! You get a Pointo!"
-            
         }
         else if (playerSelection === "scissors" && computerSelection === "rock") {
             computerScore++
@@ -73,17 +72,17 @@
     }
 
 
-        function game() {            
-            computerPicker();
-            computerSelection = getComputerChoice;
-            playerSelect();
+        function playGame() {            
+            getComputerPick();
+            computerSelection = computerChoice;
+            getPlayerPick();
             console.log(playRound(playerSelection, computerSelection));
             playerSelection = null
             console.log(`Score is Player: ${playerScore}, Computer: ${computerScore} `)
         }
 
         while (playerScore < 5 && computerScore < 5) {
-            game()
+            playGame()
         }
 
         if (playerScore === 5) {
